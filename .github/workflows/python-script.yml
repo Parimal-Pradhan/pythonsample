@@ -1,0 +1,20 @@
+name: Python Script Execution  # Name of the workflow
+
+on: 
+  - push  # Trigger the workflow when there is a push to any branch
+
+jobs:
+  run-python:  # The name of the job
+    runs-on: ubuntu-latest  # The job will run on the latest version of Ubuntu
+
+    steps:
+      - name: Checkout Code  # Step to checkout the repository code
+        uses: actions/checkout@v3  # This action checks out your code so the next steps can access it
+
+      - name: Set Up Python  # Step to set up Python environment
+        uses: actions/setup-python@v3  # This action sets up Python
+        with:
+          python-version: '3.x'  # You can specify the version of Python (e.g., 3.8 or 3.9)
+
+      - name: Run Script  # Step to run the Python script
+        run: python hello.py  # This will execute the hello.py file you created earlier
